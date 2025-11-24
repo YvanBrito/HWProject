@@ -40,7 +40,7 @@ void Bullet::update() {
 
 void Bullet::render() {
     SDL_FRect spriteClip{ 0.f, 100.f, 100.f, 100.f };
-    this->texture->render( this->position->getX(), this->position->getY(), &spriteClip, 10.f, 10.f );
+    this->texture->render( this->position->getX(), this->position->getY(), &spriteClip, 5.f, 5.f );
 }
 
 Bullet::~Bullet() {

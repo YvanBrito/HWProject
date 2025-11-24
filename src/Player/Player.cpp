@@ -20,7 +20,7 @@ void Player::init(SDL_Renderer* renderer) {
         SDL_Log( "Failed to load player texture");
     }
 
-    this->gShot = Mix_LoadWAV( "assets/SFX/shot2.mp3" );
+    this->gShot = Mix_LoadWAV( "assets/SFX/shot.mp3" );
     if( this->gShot == nullptr )
     {
         printf( "Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
