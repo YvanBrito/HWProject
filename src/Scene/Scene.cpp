@@ -11,6 +11,18 @@ bool Scene::init(SDL_Renderer* renderer) {
     player->init(this->gRenderer);
     this->instantiate(player);
 
+    gMusic = Mix_LoadMUS( "assets/Music/music.mp3" );
+    if( gMusic == NULL )
+    {
+        printf( "Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError() );
+        return false;
+    }
+
+    if( Mix_PlayingMusic() == 0 )
+    {
+        Mix_PlayMusic( gMusic, -1 );
+    }
+
     return true;
 }
 
@@ -89,6 +101,9 @@ void Scene::render(SDL_Renderer* renderer) {
 }
 
 Scene::~Scene() {
+    Mix_FreeMusic( gMusic );
+    gMusic = nullptr;
+
     for(auto& obj : pendingObjects) {
         if (obj != nullptr) {
             delete obj;

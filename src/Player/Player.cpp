@@ -15,9 +15,15 @@ Player::Player() {
 
 void Player::init(SDL_Renderer* renderer) {
     this->texture = new Texture( renderer );
-    if( this->texture->loadFromFile("img/dots.png") == false )
+    if( this->texture->loadFromFile("assets/img/dots.png") == false )
     {
         SDL_Log( "Failed to load player texture");
+    }
+
+    this->gShot = Mix_LoadWAV( "assets/SFX/shot2.mp3" );
+    if( this->gShot == nullptr )
+    {
+        printf( "Failed to load scratch sound effect! SDL_mixer Error: %s\n", Mix_GetError() );
     }
 }
 
@@ -81,6 +87,7 @@ void Player::update() {
         if (shootCooldown <= 0) {
             Bullet* bullet = new Bullet(this);
             scene->queueInstantiate(bullet);
+            Mix_PlayChannel( -1, this->gShot, 0 );
             shootCooldown = 10;
         }
         shootCooldown--;
@@ -114,4 +121,7 @@ Player::~Player() {
     this->position = nullptr;
     delete this->velocity;
     this->velocity = nullptr;
+
+    Mix_FreeChunk( this->gShot );
+    this->gShot = nullptr;
 }

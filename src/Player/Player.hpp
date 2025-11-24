@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL.h>
+#include <SDL2/SDL_mixer.h>
 #include "Texture/Texture.hpp"
 #include "Vector2/Vector2.hpp"
 #include "../GameObject/GameObject.hpp"
@@ -19,4 +20,5 @@ private:
     Texture *texture;
     Vector2 *velocity;
     Vector2 *position;
+    Mix_Chunk* gShot = nullptr;
 };

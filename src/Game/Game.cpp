@@ -21,7 +21,7 @@ Game& Game::getInstance() {
 bool Game::init() {
     bool success{ true };
 
-    if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+    if( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO ) < 0 )
     {
         SDL_Log( "SDL could not initialize! SDL error: %s\n", SDL_GetError() );
         success = false;
@@ -45,11 +45,19 @@ bool Game::init() {
             }
             else
             {
-                SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
-                if( this->currentScene->init(renderer) == false )
+                if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
                 {
-                    SDL_Log( "Failed to initialize scene!\n" );
+                    printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
                     success = false;
+                }
+                else
+                {
+                    SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+                    if( this->currentScene->init(renderer) == false )
+                    {
+                        SDL_Log( "Failed to initialize scene!\n" );
+                        success = false;
+                    }
                 }
             }
         }
@@ -121,6 +129,7 @@ void Game::cleanup() {
         window = nullptr;
     }
     
+    Mix_Quit();
     SDL_Quit();
 }
 

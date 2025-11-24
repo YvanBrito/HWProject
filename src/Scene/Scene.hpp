@@ -1,8 +1,9 @@
 #pragma once
 
-#include<vector>
-#include<SDL2/SDL.h>
-#include<SDL2/SDL_main.h>
+#include <vector>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_main.h>
+#include <SDL2/SDL_mixer.h>
 #include "../GameObject/GameObject.hpp"
 
 class Scene {
@@ -19,6 +20,7 @@ private:
     std::vector<GameObject*> gameObjects;
     std::vector<GameObject*> pendingObjects;
     SDL_Renderer* gRenderer;
+    Mix_Music* gMusic = nullptr;
     
     void processPendingObjects();
 };

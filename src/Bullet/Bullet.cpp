@@ -23,7 +23,7 @@ Bullet::Bullet(Player *owner) : owner{ owner } {
 
 void Bullet::init(SDL_Renderer* renderer) {
     this->texture = new Texture( renderer );
-    if( this->texture->loadFromFile("img/dots.png") == false )
+    if( this->texture->loadFromFile("assets/img/dots.png") == false )
     {
         SDL_Log( "Failed to load Bullet texture");
     }
