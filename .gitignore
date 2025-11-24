@@ -1,0 +1,126 @@
+# Executáveis
+main
+*.exe
+*.out
+*.app
+
+# Arquivos objeto
+*.o
+*.obj
+*.ko
+*.elf
+
+# Bibliotecas compiladas
+*.so
+*.so.*
+*.dylib
+*.dll
+*.a
+*.la
+*.lo
+*.lib
+
+# Arquivos de debug
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Arquivos gerados pelo compilador
+*.d
+*.gch
+*.pch
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+build/
+out/
+
+# Makefile gerado
+Makefile.in
+Makefile
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/c_cpp_properties.json
+*.code-workspace
+
+# CLion / IntelliJ
+.idea/
+cmake-build-*/
+*.iml
+
+# Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.vcxproj
+*.vcxproj.filters
+*.sln
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.nfs*
+
+# Logs
+*.log
+
+# Temporários
+*.swp
+*.swo
+*.tmp
+*.bak
+*.cache
+
+# Core dumps
+core
+core.*
+vgcore.*
+
+# Valgrind
+*.memcheck
+*.callgrind
+*.cachegrind
+
+# GDB
+.gdb_history
+
+# Profiling
+gmon.out
+*.gcda
+*.gcno
+*.gcov
+
+# Assets temporários (descomentar se necessário)
+# *.png
+# *.jpg
+# *.mp3
+# *.wav
+# *.ttf
+
+# Dependências (se usar package managers)
+vcpkg_installed/
+conan/
+_deps/
+
+# Backup de editores
+*.orig
+*~
+\#*\#
+.\#*
