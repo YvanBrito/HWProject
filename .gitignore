@@ -44,7 +44,6 @@ out/
 
 # Makefile gerado
 Makefile.in
-Makefile
 
 # VS Code
 .vscode/*
